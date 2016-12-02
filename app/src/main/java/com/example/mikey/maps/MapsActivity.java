@@ -124,8 +124,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         startActivity(intent);
 
     }
-<<<<<<< HEAD
-
     public void go (View view){
         Intent camera_intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         Uri photoURI = FileProvider.getUriForFile(MapsActivity.this, BuildConfig.APPLICATION_ID + ".provider", getFile());
@@ -150,7 +148,4 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //        String path = "sdcard/camera_app/cam_image.jpg";
 //        imageView.
 //    }
-=======
-    
->>>>>>> refs/remotes/origin/master
 }

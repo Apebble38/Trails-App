@@ -46,7 +46,6 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-<<<<<<< HEAD
 =======
         <!--
  ATTENTION: This was auto-generated to add Google Play services to your project for
@@ -59,7 +58,6 @@
 
         <activity android:name=".optionsList" />
         <activity android:name=".weatherUI" />
-<<<<<<< HEAD
         <activity
             android:name=".cameraActivity"
             android:label="@string/title_activity_camera"

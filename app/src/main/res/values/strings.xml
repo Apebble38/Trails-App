@@ -15,7 +15,6 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-<<<<<<< HEAD
     <string name="title_activity_camera">cameraActivity</string>
 =======
     <string name="facebook_app_id">145638629249838</string>

@@ -8,7 +8,6 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-<<<<<<< HEAD
 =======
     <style name="FacebookLoginButton">
         <item name="android:textColor">@color/white</item>
