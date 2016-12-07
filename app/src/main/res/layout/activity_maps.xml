@@ -1,4 +1,4 @@
-<LinearLayout xmlns:map="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -7,58 +7,50 @@
     android:orientation="vertical">
 
 
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="false"
-        map:fabSize="mini"
-        map:srcCompat="@android:drawable/ic_menu_camera"
-        android:id="@+id/floatingActionButton"
-        android:onClick="go"/>
+
 
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="fill_parent"
-        android:layout_height="470dp"
-        tools:context="com.example.mikey.maps.MapsActivity" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.mikey.maps.MapsActivity" >
 
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|top"
+            android:clickable="true"
+            android:focusable="false"
+            map:fabSize="mini"
+            map:srcCompat="@android:drawable/ic_menu_camera"
+            android:id="@+id/floatingActionButton"
+            android:onClick="go"/>
 
     <LinearLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
 
-        <EditText
-        android:layout_width="158dp"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Search for trail"
-        android:ems="10"
-        android:id="@+id/TFaddress" />
-
-        <Button
-            android:text="Search"
-            android:layout_width="135dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/button4"
-            android:onClick="onSearch" />
 
         <Button
             android:text="Map Type"
-            android:layout_width="117dp"
+            android:layout_width="match_parent"
             android:onClick="changeType"
             android:layout_height="wrap_content"
             android:id="@+id/Btype" />
 
+        <Button
+            android:text="Menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button2"
+            android:onClick="listOptions"/>
+
     </LinearLayout>
 
-    <Button
-        android:text="Menu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button2"
-        android:onClick="listOptions"/>
+    </fragment>
 
-</LinearLayout>
+
+
+</RelativeLayout>

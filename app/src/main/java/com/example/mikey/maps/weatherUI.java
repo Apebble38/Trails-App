@@ -26,6 +26,8 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.util.Date;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 
 public class weatherUI extends AppCompatActivity {
     private TextView cityName;
@@ -40,6 +42,7 @@ public class weatherUI extends AppCompatActivity {
     private TextView updated;
 
     Weather weather = new Weather();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -174,5 +177,6 @@ public class weatherUI extends AppCompatActivity {
         }
     }
     //--- DownloadImage End ---//
+
 
 }

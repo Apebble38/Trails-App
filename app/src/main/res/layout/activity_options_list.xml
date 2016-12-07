@@ -51,4 +51,11 @@
         android:layout_centerHorizontal="true"
         android:elevation="0dp" />
 
+        android:layout_marginTop="66dp"
+        android:id="@+id/button8"
+        android:layout_below="@+id/button7"
+        android:layout_alignStart="@+id/button7"
+        android:text="Weather"
+        android:onClick="onClick" />
+
 </RelativeLayout>

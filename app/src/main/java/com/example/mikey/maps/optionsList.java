@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.mikey.maps.Facebook.FacebookLogin;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
 
 public class optionsList extends AppCompatActivity {
 
@@ -31,6 +34,10 @@ public class optionsList extends AppCompatActivity {
 
         Intent intent = new Intent(this, FacebookLogin.class);
         startActivity(intent);
-
     }
+
+//    public void onClick(View view) {
+//            Intent intent1 = new Intent(this, weatherUI.class);
+//        startActivity(intent1);
+//    }
 }
