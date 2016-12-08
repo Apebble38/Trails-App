@@ -29,6 +29,11 @@ public class optionsList extends AppCompatActivity {
 
     }
 
+    public void profileClick(View view){
+        Intent intent = new Intent(this, profileActivity.class);
+        startActivity(intent);
+    }
+
     public void faceClick(View view) {
 
         Intent intent = new Intent(this, FacebookLogin.class);

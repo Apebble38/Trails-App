@@ -89,12 +89,13 @@
             android:name=".Trails.TrailActivity"
             android:label="@string/title_activity_trail" />
         <activity android:name=".Trails.TrailHistoryActivity" />
-        <activity android:name=".ActivityActivity"></activity>
-            android:name=".TrailActivity"
-            android:label="@string/title_activity_trail" />
+        <activity android:name=".ActivityActivity" />
+        android:name=".TrailActivity"
+        android:label="@string/title_activity_trail" />
         <activity
             android:name=".FitnessActivity"
-            android:label="@string/title_activity_fitness"></activity>
+            android:label="@string/title_activity_fitness" />
+        <activity android:name=".ProfileActivity"></activity>
     </application>
 
 </manifest>
