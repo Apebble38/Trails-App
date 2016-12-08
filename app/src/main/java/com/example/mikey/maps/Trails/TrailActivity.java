@@ -1,15 +1,15 @@
-package com.example.mikey.maps;
+package com.example.mikey.maps.Trails;
 
 import android.content.Intent;
-import android.location.Location;
 import android.os.Bundle;
 import android.app.Activity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.mikey.maps.Trails.Trail;
+import com.example.mikey.maps.ActivityActivity;
+import com.example.mikey.maps.MapsActivity;
+import com.example.mikey.maps.R;
 
 import java.util.Arrays;
 
@@ -43,6 +43,16 @@ public class TrailActivity extends Activity {
             public void onClick(View v) {
                 // Perform action on click
                 Intent intent = new Intent(TrailActivity.this,MapsActivity.class);
+                intent.putExtra("com.package.Trail",trail);
+                startActivity(intent);
+            }
+        });
+
+        Button ActivityButton = (Button) findViewById(R.id.Start_Activity);
+        ActivityButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                Intent intent = new Intent(TrailActivity.this,ActivityActivity.class);
                 intent.putExtra("com.package.Trail",trail);
                 startActivity(intent);
             }

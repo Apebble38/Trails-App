@@ -81,13 +81,13 @@
             android:exported="true" />
 
         <activity
-            android:name=".trailsActivity"
+            android:name=".Trails.trailsActivity"
             android:label="@string/title_activity_trails" />
         <activity
-            android:name=".TrailActivity"
+            android:name=".Trails.TrailActivity"
             android:label="@string/title_activity_trail" />
-        <activity android:name=".AccountActivity" />
-        <activity android:name=".TrailHistoryActivity"></activity>
+        <activity android:name=".Trails.TrailHistoryActivity" />
+        <activity android:name=".ActivityActivity"></activity>
     </application>
 
 </manifest>

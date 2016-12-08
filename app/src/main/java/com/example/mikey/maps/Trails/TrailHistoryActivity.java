@@ -1,13 +1,15 @@
-package com.example.mikey.maps;
+package com.example.mikey.maps.Trails;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class AccountActivity extends AppCompatActivity {
+import com.example.mikey.maps.R;
+
+public class TrailHistoryActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_accounts);
+        setContentView(R.layout.activity_trail_history);
     }
 }
