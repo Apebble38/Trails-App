@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.mikey.maps.TrailActivity">
+    tools:context="com.example.mikey.maps.Trails.TrailActivity">
 
     <TextView
         android:text="TextView"
@@ -45,5 +45,14 @@
         android:id="@+id/SeeOnMap"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="Start Activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/SeeOnMap"
+        android:layout_toEndOf="@+id/SeeOnMap"
+        android:layout_marginStart="12dp"
+        android:id="@+id/Start_Activity" />
 
 </RelativeLayout>
