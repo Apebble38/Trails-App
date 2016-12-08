@@ -3,6 +3,8 @@
     package="com.example.mikey.maps">
 
     <uses-feature android:name="android.hardware.camera2" />
+    <uses-feature android:name="android.hardware.sensor.stepcounter" />
+    <uses-feature android:name="android.hardware.sensor.stepdetector" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -85,7 +87,10 @@
             android:label="@string/title_activity_trails" />
         <activity
             android:name=".TrailActivity"
-            android:label="@string/title_activity_trail"></activity>
+            android:label="@string/title_activity_trail" />
+        <activity
+            android:name=".FitnessActivity"
+            android:label="@string/title_activity_fitness"></activity>
     </application>
 
 </manifest>

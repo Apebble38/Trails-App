@@ -31,5 +31,6 @@
         <item>Distance</item>
     </string-array>
     <string name="title_activity_trail">TrailActivity</string>
+    <string name="title_activity_fitness">FitnessActivity</string>
 
 </resources>

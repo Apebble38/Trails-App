@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.mikey.maps.Facebook.FacebookLogin;
+import com.google.android.gms.fitness.Fitness;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -36,8 +38,9 @@ public class optionsList extends AppCompatActivity {
         startActivity(intent);
     }
 
-//    public void onClick(View view) {
-//            Intent intent1 = new Intent(this, weatherUI.class);
-//        startActivity(intent1);
-//    }
+    public void fitButt(View view){
+        Intent intent = new Intent(this, FitnessActivity.class);
+        startActivity(intent);
+    }
+
 }
