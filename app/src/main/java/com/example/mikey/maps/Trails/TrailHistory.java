@@ -9,12 +9,12 @@ import java.util.Date;
 
 public class TrailHistory {
     private String trailName;
-    private Date date;
-    private Time duration;
+    private String date;
+    private long duration;
     private int Steps;
 
 
-    public TrailHistory(String trailName, Date date, Time duration, int steps) {
+    public TrailHistory(String trailName, String date, long duration, int steps) {
 
         this.trailName = trailName;
         this.date = date;
@@ -27,11 +27,11 @@ public class TrailHistory {
         return trailName;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public Time getDuration() {
+    public long getDuration() {
         return duration;
     }
 
@@ -44,11 +44,11 @@ public class TrailHistory {
         this.trailName = trailName;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public void setDuration(Time duration) {
+    public void setDuration(long duration) {
         this.duration = duration;
     }
 

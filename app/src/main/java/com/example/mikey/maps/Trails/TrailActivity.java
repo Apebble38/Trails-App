@@ -11,7 +11,9 @@ import com.example.mikey.maps.ActivityActivity;
 import com.example.mikey.maps.MapsActivity;
 import com.example.mikey.maps.R;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
 
 public class TrailActivity extends Activity {
     TextView trailName;
@@ -25,6 +27,12 @@ public class TrailActivity extends Activity {
         setContentView(R.layout.activity_trail);
         Bundle b = getIntent().getExtras();
         final Trail trail = b.getParcelable("com.package.Trail");
+        Calendar c = Calendar.getInstance();
+        System.out.println("Current time => " + c.getTime());
+
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+        String formattedDate = df.format(c.getTime());
+
 
         trailName = (TextView)findViewById(R.id.trailName);
         trailType = (TextView)findViewById(R.id.trailType);
