@@ -6,11 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.mikey.maps.Facebook.FacebookLogin;
+<<<<<<< HEAD
+import com.example.mikey.maps.Trails.trailsActivity;
+=======
 import com.google.android.gms.fitness.Fitness;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+>>>>>>> 1007cbb6b3b6c9126a77b8993e24dc5014f9a56a
 
 public class optionsList extends AppCompatActivity {
 

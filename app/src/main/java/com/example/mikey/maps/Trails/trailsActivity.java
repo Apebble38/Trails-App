@@ -1,4 +1,4 @@
-package com.example.mikey.maps;
+package com.example.mikey.maps.Trails;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,10 +11,8 @@ import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
 
-import com.example.mikey.maps.Trails.DatabaseOperations;
-import com.example.mikey.maps.Trails.Trail;
+import com.example.mikey.maps.R;
 
 import java.util.ArrayList;
 

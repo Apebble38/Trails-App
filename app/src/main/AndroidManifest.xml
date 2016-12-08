@@ -83,14 +83,21 @@
             android:exported="true" />
 
         <activity
-            android:name=".trailsActivity"
+            android:name=".Trails.trailsActivity"
             android:label="@string/title_activity_trails" />
         <activity
+<<<<<<< HEAD
+            android:name=".Trails.TrailActivity"
+            android:label="@string/title_activity_trail" />
+        <activity android:name=".Trails.TrailHistoryActivity" />
+        <activity android:name=".ActivityActivity"></activity>
+=======
             android:name=".TrailActivity"
             android:label="@string/title_activity_trail" />
         <activity
             android:name=".FitnessActivity"
             android:label="@string/title_activity_fitness"></activity>
+>>>>>>> 1007cbb6b3b6c9126a77b8993e24dc5014f9a56a
     </application>
 
 </manifest>

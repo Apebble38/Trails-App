@@ -1,4 +1,4 @@
-package com.example.mikey.maps;
+package com.example.mikey.maps.Trails;
 
 import android.content.Context;
 import android.support.v7.util.SortedList;
@@ -12,6 +12,7 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
 
+import com.example.mikey.maps.R;
 import com.example.mikey.maps.Trails.Trail;
 
 import java.util.ArrayList;
