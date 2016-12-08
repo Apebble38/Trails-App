@@ -23,20 +23,24 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener{
 
     private GoogleMap mMap;
     static final int CAM_REQUEST = 1;
     Bundle extras;
     float zoomLevel;
     LatLng zoomLocation;
+    ArrayList<Marker> markers;
+    List<Trail> trailList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +66,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        markers = new ArrayList<Marker>();
         if (extras != null) {
             Trail selectedTrail = extras.getParcelable("com.package.Trail");
             zoomLevel = (float) 15.0;
@@ -77,7 +82,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         DatabaseOperations data = new DatabaseOperations(this);
         data.populateDatabase(this);
-        List<Trail> trailList = data.getAllTrails();
+        trailList = data.getAllTrails();
         LatLng a = new LatLng(trailList.get(0).getLatitude(), trailList.get(0).getLongtitude());
         //System.out.println("Latitude" + trailList.get(1).getLatitude());
         //System.out.println("Longitude" + trailList.get(1).getLongtitude());
@@ -88,22 +93,30 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             activity = activity.replace("[","");
             activity = activity.replace("]","");
             String[] actities = activity.split(",");
-
+            mMap.setOnInfoWindowClickListener(this);
             if(actities[0].equals("hiking")) {
-                mMap.addMarker(new MarkerOptions().position(new LatLng(x.getLatitude(),
+                Marker temp = mMap.addMarker(new MarkerOptions().position(new LatLng(x.getLatitude(),
                         x.getLongtitude()))
                         .title(x.getName() + ": " + activity)
-                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.man_in_hike)));
+                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.man_in_hike))
+                        .flat(true));
+
+                markers.add(temp);
             }else if(actities[0].equals("biking")){
-                mMap.addMarker(new MarkerOptions().position(new LatLng(x.getLatitude(),
+                Marker temp = mMap.addMarker(new MarkerOptions().position(new LatLng(x.getLatitude(),
                         x.getLongtitude()))
                         .title(x.getName() + ": " + activity)
-                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.bicycle_rider)));
+                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.bicycle_rider))
+                        .flat(true));
+
+                markers.add(temp);
             }else{
-                mMap.addMarker(new MarkerOptions().position(new LatLng(x.getLatitude(),
+                Marker temp = mMap.addMarker(new MarkerOptions().position(new LatLng(x.getLatitude(),
                         x.getLongtitude()))
                         .title(x.getName() + ": " + activity)
-                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.pedestrian_walking)));
+                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.pedestrian_walking))
+                        .flat(true));
+                markers.add(temp);
             }
 
         }
@@ -127,31 +140,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(oswego));
     }
 
-//    public void onSearch(View view)
-//    {
-//        float zoomLevel = (float) 16.0;
-//        EditText location_tf = (EditText)findViewById(R.id.TFaddress);
-//        String location = location_tf.getText().toString();
-//        List<Address> addressList = null;
-//
-//        if(!location.isEmpty() || !location.equals("")){
-//            Geocoder geocoder = new Geocoder(this);
-//            try {
-//               addressList = geocoder.getFromLocationName(location , 1);
-//
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//
-//            android.location.Address address = addressList.get(0);
-//            LatLng latlng = new LatLng(address.getLatitude(),address.getLongitude());
-//            mMap.addMarker(new MarkerOptions().position(latlng).title(location));
-//            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlng, zoomLevel));
-//        } else {
-//
-//        }
-//
-//    }
+
+    @Override
+    public void onInfoWindowClick(final Marker marker) {
+
+        if (markers.contains(marker)) {
+            int index = markers.indexOf(marker);
+            Trail activeTrail = trailList.get(index);
+            Intent intent = new Intent(MapsActivity.this,TrailActivity.class);
+            intent.putExtra("com.package.Trail",activeTrail);
+            startActivity(intent);
+            //handle click here
+
+        }
+    }
 
     public void listOptions(View view){
         Intent intent = new Intent(this, optionsList.class);

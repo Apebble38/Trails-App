@@ -138,7 +138,7 @@ public class TrailAdapter extends BaseAdapter implements Filterable {
                 filteredList = new ArrayList<Trail>();
                 for(Trail x: trailList){
                     String[] activities = x.getType();
-                    System.out.println("activities " + activities[0]);
+                    //System.out.println("activities " + activities[0]);
                     for(int i = 0; i < activities.length;i++){
                         if(activities[i].equals("hiking")){
                             System.out.println("adding");
@@ -164,7 +164,7 @@ public class TrailAdapter extends BaseAdapter implements Filterable {
                 for(Trail x: trailList){
                     String[] activities = x.getType();
                     for(int i = 0; i < activities.length;i++){
-                        System.out.println("activities " + activities[i]);
+                        //System.out.println("activities " + activities[i]);
                         if(activities[i].equals("biking")){
                             filteredList.add(x);
                         }
@@ -186,7 +186,7 @@ public class TrailAdapter extends BaseAdapter implements Filterable {
                 for(Trail x: trailList){
                     String[] activities = x.getType();
                     for(int i = 0; i < activities.length;i++){
-                        System.out.println("activities " + activities[i]);
+                        //System.out.println("activities " + activities[i]);
                         if(activities[i].equals("walking")){
                             filteredList.add(x);
                         }
@@ -215,6 +215,28 @@ public class TrailAdapter extends BaseAdapter implements Filterable {
                 //System.out.println("filteredList size " +filteredList.size());
                 results.count = filteredList.size();
                 results.values = filteredList;
+            }
+
+            else{
+                trailList = untouchedTrails;
+                filteredList=new ArrayList<Trail>();
+                for(Trail x: trailList){
+                    String[] activities = x.getType();
+                    if(x.getName().toLowerCase().contains(((String)constraint).toLowerCase())){
+                        filteredList.add(x);
+                    }
+                    for(int i = 0; i < activities.length;i++){
+                        //System.out.println("activities " + activities[i]);
+
+                        if(activities[i].toLowerCase().contains(((String)constraint).toLowerCase())){
+                            filteredList.add(x);
+                        }
+                    }
+
+                }
+                results.count = filteredList.size();
+                results.values = filteredList;
+
             }
             return results;
         }
