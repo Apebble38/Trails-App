@@ -24,21 +24,31 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/fitbutt"
+        android:text="Fitness"
+        android:onClick="fitButt"
+        android:elevation="0dp"
+        android:layout_below="@+id/faceButton"
+        android:layout_alignEnd="@+id/button8"
+        android:layout_marginTop="34dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/button8"
         android:text="Weather"
         android:onClick="weatherClick"
-        android:layout_marginBottom="33dp"
-        android:layout_above="@+id/faceButton"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/button7"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp" />
 
     <Button
         android:text="Profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="19dp"
         android:id="@+id/button7"
         android:layout_below="@+id/button3"
-        android:layout_alignEnd="@+id/button8"
         android:layout_alignStart="@+id/button8" />
 
     <Button
@@ -47,15 +57,9 @@
         android:id="@+id/faceButton"
         android:text="Facebook"
         android:onClick="faceClick"
-        android:layout_centerVertical="true"
+        android:elevation="0dp"
+        android:layout_alignTop="@+id/button8"
         android:layout_centerHorizontal="true"
-        android:elevation="0dp" />
-
-        android:layout_marginTop="66dp"
-        android:id="@+id/button8"
-        android:layout_below="@+id/button7"
-        android:layout_alignStart="@+id/button7"
-        android:text="Weather"
-        android:onClick="onClick" />
+        android:layout_marginTop="66dp" />
 
 </RelativeLayout>
