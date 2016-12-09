@@ -30,7 +30,7 @@ public class optionsList extends AppCompatActivity {
     }
 
     public void profileClick(View view){
-        Intent intent = new Intent(this, profileActivity.class);
+        Intent intent = new Intent(this, ProfileActivity.class);
         startActivity(intent);
     }
 
