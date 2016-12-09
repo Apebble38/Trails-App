@@ -104,6 +104,9 @@ public class TrailHistoryDatabaseOps extends SQLiteOpenHelper{
         }
 
         public List<TrailHistory> getAllHistories() {
+            if(getTrailsCount()==0){
+                return null;
+            }
             List<TrailHistory> trailList = new ArrayList<TrailHistory>();
             // Select All Query
             String selectQuery = "SELECT  * FROM " + TABLE_NAME;
@@ -131,9 +134,13 @@ public class TrailHistoryDatabaseOps extends SQLiteOpenHelper{
 
 
         public int getTrailsCount() {
-            String countQuery = "SELECT  * FROM " + TABLE_NAME;
+            String countQuery = "SELECT  count(*) FROM " + TABLE_NAME;
             SQLiteDatabase db = this.getReadableDatabase();
+            if(db==null){
+                return 0;
+            }
             Cursor cursor = db.rawQuery(countQuery, null);
+            cursor.moveToFirst();
             int count = cursor.getCount();
             cursor.close();
 

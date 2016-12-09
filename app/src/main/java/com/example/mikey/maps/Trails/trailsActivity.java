@@ -33,7 +33,7 @@ public class trailsActivity extends Activity implements AdapterView.OnItemSelect
         String filter = mySpinner.getSelectedItem().toString();
         DatabaseOperations data = new DatabaseOperations(this);
         ArrayList<Trail> trailList =(ArrayList<Trail>) data.getAllTrails();
-        System.out.println("Number of trails: " + trailList.size());
+        //System.out.println("Number of trails: " + trailList.size());
 
 
 

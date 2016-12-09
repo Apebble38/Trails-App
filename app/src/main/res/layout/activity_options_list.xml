@@ -49,6 +49,7 @@
         android:layout_marginTop="19dp"
         android:id="@+id/button7"
         android:layout_below="@+id/button3"
+        android:onClick="profileClick"
         android:layout_alignStart="@+id/button8" />
 
     <Button
