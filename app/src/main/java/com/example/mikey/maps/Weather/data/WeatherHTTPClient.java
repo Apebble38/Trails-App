@@ -1,5 +1,6 @@
 package com.example.mikey.maps.Weather.data;
 
+import com.example.mikey.maps.MapsActivity;
 import com.example.mikey.maps.Weather.utils.Utils;
 
 import java.io.BufferedReader;
@@ -15,14 +16,14 @@ import java.net.URL;
 
 public class WeatherHTTPClient {
 
-    public String getWeatherData(String place){
+
+    public String getWeatherData(String lat, String lon){
         HttpURLConnection connection = null;
         InputStream inputStream = null;
 
-
         try {
             //Query
-            connection = (HttpURLConnection)(new URL(Utils.Base_URL + place + Utils.APP_ID)).openConnection();
+            connection = (HttpURLConnection)(new URL(Utils.apiRequest(lat,lon))).openConnection();
             connection.setRequestMethod("GET");
             connection.setDoInput(true);
             connection.connect();
