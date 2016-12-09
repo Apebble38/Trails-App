@@ -36,14 +36,21 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
+
+        <activity
+            android:name=".splashActivity">
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".MapsActivity"
@@ -89,12 +96,11 @@
             android:name=".Trails.TrailActivity"
             android:label="@string/title_activity_trail" />
         <activity android:name=".Trails.TrailHistoryActivity" />
-        <activity android:name=".ActivityActivity"></activity>
-            android:name=".TrailActivity"
-            android:label="@string/title_activity_trail" />
-        <activity
-            android:name=".FitnessActivity"
-            android:label="@string/title_activity_fitness"></activity>
+        <activity android:name=".ActivityActivity" /><![CDATA[
+        android:name=".TrailActivity"
+        android:label="@string/title_activity_trail" />
+
+    ]]>
     </application>
 
 </manifest>

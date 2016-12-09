@@ -43,35 +43,35 @@
         android:layout_below="@+id/timerField"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:id="@+id/steps" />
+        android:id="@+id/count" />
+
+    <Button
+        android:text="Save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/save"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/reset"
+        android:layout_marginBottom="76dp" />
+
+    <Button
+        android:text="Reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/reset"
+        android:layout_above="@+id/save"
+        android:layout_alignStart="@+id/StartStop"
+        android:layout_marginBottom="39dp" />
 
     <Button
         android:text="Start"
         android:background="#37c433"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/steps"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:id="@+id/StartStop" />
-
-    <Button
-        android:text="Reset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/StartStop"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:id="@+id/reset" />
-
-    <Button
-        android:text="Save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/reset"
-        android:layout_marginTop="50dp"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/save" />
+        android:layout_marginTop="24dp"
+        android:id="@+id/StartStop"
+        android:layout_below="@+id/count"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

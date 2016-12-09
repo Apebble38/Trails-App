@@ -35,9 +35,5 @@ public class optionsList extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void fitButt(View view){
-        Intent intent = new Intent(this, FitnessActivity.class);
-        startActivity(intent);
-    }
 
 }

@@ -32,5 +32,6 @@
     </string-array>
     <string name="title_activity_trail">TrailActivity</string>
     <string name="title_activity_fitness">FitnessActivity</string>
+    <string name="title_activity_splasch_actvity">splaschActvity</string>
 
 </resources>

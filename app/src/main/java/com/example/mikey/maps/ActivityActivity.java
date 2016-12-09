@@ -1,7 +1,12 @@
 package com.example.mikey.maps;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Color;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.icu.util.TimeUnit;
 import android.os.CountDownTimer;
 import android.os.SystemClock;
@@ -18,17 +23,23 @@ import com.example.mikey.maps.Trails.Trail;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class ActivityActivity extends Activity {
+public class ActivityActivity extends Activity implements SensorEventListener {
     TextView trailName;
     TextView timerField;
     Button startStop;
     Button reset;
     Button save;
+
     boolean counting;
+
     Chronometer timer;
+
     long startTime;
     long countUp;
     long elapsedTimeBeforePause;
+    private SensorManager sensorManager;
+    private TextView countingStep;
+    boolean activityRunning;
 
 
     @Override
@@ -36,6 +47,11 @@ public class ActivityActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity);
         Bundle b = getIntent().getExtras();
+
+        countingStep = (TextView) findViewById(R.id.count);
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        countingStep.setText("Ready to Start?");
+
         final Trail trail = b.getParcelable("com.package.Trail");
         trailName = (TextView)findViewById(R.id.trailTitle);
         timerField = (TextView)findViewById(R.id.timerField);
@@ -103,4 +119,53 @@ public class ActivityActivity extends Activity {
                 Toast.LENGTH_SHORT).show();
     }
 
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        activityRunning = true;
+        Sensor countSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+
+        if(countSensor != null){
+            sensorManager.registerListener(this, countSensor, SensorManager.SENSOR_DELAY_UI);
+
+        } else {
+            Toast.makeText(this, "Count sensor not available!", Toast.LENGTH_LONG).show();
+
+        }
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        activityRunning = false;
+
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        Sensor sensor = sensorEvent.sensor;
+        float[] values = sensorEvent.values;
+        int stepsInSensor = -1;
+
+
+        if (values.length > 0) {
+            stepsInSensor = (int) values[0];    //the latest value added will be at value[0]
+        }
+
+        if (sensor.getType() == Sensor.TYPE_STEP_COUNTER) {
+            countingStep.setText("Number of steps taken : " + stepsInSensor);
+
+        } else if (sensor.getType() == Sensor.TYPE_STEP_DETECTOR) {
+            countingStep.setText("Number of steps taken : " + stepsInSensor);
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int i) {
+
+    }
 }
+
+
+
