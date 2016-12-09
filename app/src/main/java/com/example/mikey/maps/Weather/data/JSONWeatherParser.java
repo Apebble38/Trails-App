@@ -25,8 +25,8 @@ public class JSONWeatherParser {
             Place place = new Place();
 
             JSONObject coordObj = Utils.getObject("coord", jsonObject);
-            place.setLat(Utils.getFloat("lat", coordObj));
-            place.setLon(Utils.getFloat("lon", coordObj));
+            place.setLat(Utils.getDouble("lat", coordObj));
+            place.setLon(Utils.getDouble("lon", coordObj));
 
             //Get sys object from API
             JSONObject sysObj = Utils.getObject("sys", jsonObject);

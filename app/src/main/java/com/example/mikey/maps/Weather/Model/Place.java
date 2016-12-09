@@ -6,8 +6,8 @@ package com.example.mikey.maps.Weather.Model;
 
 public class Place {
 
-    private float lon;
-    private float lat;
+    private double lon;
+    private double lat;
     private long sunset;
     private long sunrise;
     private String country;
@@ -54,19 +54,19 @@ public class Place {
         this.sunrise = sunrise;
     }
 
-    public float getLat() {
+    public double getLat() {
         return lat;
     }
 
-    public void setLat(float lat) {
+    public void setLat(double lat) {
         this.lat = lat;
     }
 
-    public float getLon() {
+    public double getLon() {
         return lon;
     }
 
-    public void setLon(float lon) {
+    public void setLon(double lon) {
         this.lon = lon;
     }
 }

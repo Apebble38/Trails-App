@@ -42,6 +42,8 @@ public class weatherUI extends AppCompatActivity {
     private TextView sunset;
     private TextView updated;
     LatLng oswego;
+    String lat = String.valueOf(MapsActivity.getLat());
+    String lon = String.valueOf(MapsActivity.getLon());
 
     Weather weather = new Weather();
 
@@ -59,13 +61,13 @@ public class weatherUI extends AppCompatActivity {
         wind = (TextView) findViewById(R.id.windText);
         updated = (TextView) findViewById(R.id.updateText);
 
-        renderWeatherData("Oswego,US");
+        renderWeatherData(lat,lon);
 
 
     }
-    public void renderWeatherData(String city){
+    public void renderWeatherData(String la, String lo){
         WeatherTask weatherTask = new WeatherTask();
-        weatherTask.execute(city +"&units=imperial");
+        weatherTask.execute(lat, lon);
 
     }
 
@@ -75,11 +77,11 @@ public class weatherUI extends AppCompatActivity {
 
         @Override
         protected Weather doInBackground(String... params) {
-           String data = ((new WeatherHTTPClient().getWeatherData(params[0])));
+           String data = ((new WeatherHTTPClient().getWeatherData(lat,lon)));
 
             weather = JSONWeatherParser.getWeather(data);
 
-            Log.v("Data:",weather.local.getCity());
+            Log.v("Data:", String.valueOf(weather.local.getLat())+String.valueOf(weather.local.getLon()));
             return weather;
         }
         @Override
