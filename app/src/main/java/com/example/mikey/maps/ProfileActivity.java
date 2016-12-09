@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.mikey.maps.Trails.HistoryActivity;
 import com.example.mikey.maps.Trails.HistoryAdapter;
@@ -15,17 +16,23 @@ import com.example.mikey.maps.Trails.TrailActivity;
 import com.example.mikey.maps.Trails.TrailHistory;
 import com.example.mikey.maps.Trails.TrailHistoryDatabaseOps;
 import com.example.mikey.maps.Trails.trailsActivity;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 
 import java.util.ArrayList;
 
 public class ProfileActivity extends AppCompatActivity {
     private HistoryAdapter adapter;
     private ListView listView;
+    private TextView name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         listView = (ListView) findViewById(R.id.list);
+        name = (TextView) findViewById(R.id.name);
+
+        //name.setText();
         TrailHistoryDatabaseOps data = new TrailHistoryDatabaseOps(this);
         ArrayList<TrailHistory> historyList =(ArrayList<TrailHistory>) data.getAllHistories();
         if(historyList==null){

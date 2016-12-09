@@ -112,6 +112,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         } else {
             zoomLevel = (float) 10.0;
+            System.out.println("lat: " + lat);
+            System.out.println("lon: " + lon);
             zoomLocation = new LatLng(lat,lon);
         }
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(zoomLocation, zoomLevel));

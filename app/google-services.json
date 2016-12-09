@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "516070623594",
+    "project_id": "firebase-oswegotrails"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516070623594:android:3789c716f7950363",
+        "android_client_info": {
+          "package_name": "com.example.mikey.maps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "516070623594-7ref0lbdmie4colcfl21chak7bobulsd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mikey.maps",
+            "certificate_hash": "DC01EEFEBC566746F90484A9A67612E22159A4DB"
+          }
+        },
+        {
+          "client_id": "516070623594-me3pr8mdcvf0k8ranncr0bdmuv20rb4t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRrbXxpw0Q1itjYi0AZhoXhil99xWM0Cg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

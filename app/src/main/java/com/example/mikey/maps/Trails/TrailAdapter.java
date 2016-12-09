@@ -42,7 +42,7 @@ public class TrailAdapter extends BaseAdapter implements Filterable {
         mLayoutInflater = LayoutInflater.from(context);
     }
     public int getCount(){
-        System.out.println("trailsList size: " + trailList.size());
+        //System.out.println("trailsList size: " + trailList.size());
         return trailList.size();
     }
     public Trail getItem(int position){
@@ -100,7 +100,7 @@ public class TrailAdapter extends BaseAdapter implements Filterable {
 
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
-        System.out.println("constraint: " + constraint);
+        //System.out.println("constraint: " + constraint);
         //below checks the match for the cityId and adds to the filterlist
             //long cityId= Long.parseLong(constraint.toString());
             FilterResults results = new FilterResults();
@@ -142,7 +142,7 @@ public class TrailAdapter extends BaseAdapter implements Filterable {
                     //System.out.println("activities " + activities[0]);
                     for(int i = 0; i < activities.length;i++){
                         if(activities[i].equals("hiking")){
-                            System.out.println("adding");
+                            //System.out.println("adding");
                             filteredList.add(x);
                         }
                     }
