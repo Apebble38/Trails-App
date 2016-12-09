@@ -48,6 +48,7 @@ public class ActivityActivity extends Activity implements SensorEventListener {
     boolean activityRunning;
     TrailHistoryDatabaseOps historyData;
     Calendar c;
+    int stepsInSensor = -1;
 
 
     @Override
@@ -126,7 +127,7 @@ public class ActivityActivity extends Activity implements SensorEventListener {
                 String formattedDate = df.format(c.getTime());
 
                 TrailHistory trailHistory = new TrailHistory(trail.getName(),
-                        formattedDate,getElapsedTime(),0);
+                        formattedDate,getElapsedTime(), stepsInSensor);
                 Toast.makeText(ActivityActivity.this,"Saved",Toast.LENGTH_SHORT).show();
 
                 historyData.addTrailHistory(trailHistory);
@@ -172,7 +173,7 @@ public class ActivityActivity extends Activity implements SensorEventListener {
     public void onSensorChanged(SensorEvent sensorEvent) {
         Sensor sensor = sensorEvent.sensor;
         float[] values = sensorEvent.values;
-        int stepsInSensor = -1;
+
 
 
         if (values.length > 0) {
