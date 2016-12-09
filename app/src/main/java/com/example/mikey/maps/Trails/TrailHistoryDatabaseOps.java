@@ -28,13 +28,13 @@ public class TrailHistoryDatabaseOps extends SQLiteOpenHelper{
         //database version
         public static final int database_version = 1;
         //database name
-        public static final String DATABASE_NAME = "Trail_Manager";
+        public static final String DATABASE_NAME = "TrailHistory_Manager";
 
         //table name
         public static final String TABLE_NAME = "Trail_History";
 
         //Trails table Columns names
-        public static final String TRAIL_NAME = "trail_name";
+        public static final String TRAIL_NAME = "Trail_Name";
         public static final String DATE = "Date";
         public static final String DURATION = "Duration";
         public static final String STEPS = "Steps";
@@ -140,7 +140,6 @@ public class TrailHistoryDatabaseOps extends SQLiteOpenHelper{
                 return 0;
             }
             Cursor cursor = db.rawQuery(countQuery, null);
-            cursor.moveToFirst();
             int count = cursor.getCount();
             cursor.close();
 

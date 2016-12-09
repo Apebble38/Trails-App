@@ -7,6 +7,9 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import android.icu.util.TimeUnit;
 import android.os.CountDownTimer;
 import android.os.SystemClock;
@@ -19,6 +22,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mikey.maps.Trails.Trail;
+import com.example.mikey.maps.Trails.TrailHistory;
+import com.example.mikey.maps.Trails.TrailHistoryDatabaseOps;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -35,11 +40,14 @@ public class ActivityActivity extends Activity implements SensorEventListener {
     Chronometer timer;
 
     long startTime;
+    long elapsedMillis;
     long countUp;
     long elapsedTimeBeforePause;
     private SensorManager sensorManager;
     private TextView countingStep;
     boolean activityRunning;
+    TrailHistoryDatabaseOps historyData;
+    Calendar c;
 
 
     @Override
@@ -47,11 +55,10 @@ public class ActivityActivity extends Activity implements SensorEventListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity);
         Bundle b = getIntent().getExtras();
-
+        historyData = new TrailHistoryDatabaseOps(this);
         countingStep = (TextView) findViewById(R.id.count);
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         countingStep.setText("Ready to Start?");
-
         final Trail trail = b.getParcelable("com.package.Trail");
         trailName = (TextView)findViewById(R.id.trailTitle);
         timerField = (TextView)findViewById(R.id.timerField);
@@ -111,14 +118,33 @@ public class ActivityActivity extends Activity implements SensorEventListener {
             }
         });
 
+        save.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                c = Calendar.getInstance();
+                SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+                String formattedDate = df.format(c.getTime());
+
+                TrailHistory trailHistory = new TrailHistory(trail.getName(),
+                        formattedDate,getElapsedTime(),0);
+                Toast.makeText(ActivityActivity.this,"Saved",Toast.LENGTH_SHORT).show();
+
+                historyData.addTrailHistory(trailHistory);
+            }
+        });
+
 
     }
     private void showElapsedTime() {
-        long elapsedMillis = SystemClock.elapsedRealtime() - timer.getBase();
+        elapsedMillis = SystemClock.elapsedRealtime() - timer.getBase();
         Toast.makeText(ActivityActivity.this, "Elapsed milliseconds: " + elapsedMillis,
                 Toast.LENGTH_SHORT).show();
     }
 
+    private long getElapsedTime() {
+        return SystemClock.elapsedRealtime() - timer.getBase();
+
+    }
 
     @Override
     public void onResume() {

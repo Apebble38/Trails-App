@@ -9,7 +9,7 @@
     android:orientation="vertical"
     app:layout_scrollFlags="scroll">
 
-    <EditText
+    <TextView
         android:text="Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,7 +17,7 @@
         android:paddingTop="10dp"
         android:gravity="center"
         android:id="@+id/ProfileInfo">
-    </EditText>
+    </TextView>
 
     <ListView
         android:id="@+id/list"
