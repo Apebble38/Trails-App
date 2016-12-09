@@ -31,9 +31,9 @@ public class HistoryActivity extends Activity {
         long lDuration = trailHistory.getDuration();
 
         String sDuration = lDuration+"";
-        duration.setText(sDuration);
+        duration.setText("Duration" + sDuration);
 
-        steps.setText(trailHistory.getSteps()+"");
+        steps.setText("Steps" + trailHistory.getSteps()+"");
     }
 
 }
