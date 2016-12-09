@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="splashScreenTheme" parent="@android:style/Theme.WithActionBar">
+        <item name="android:windowBackground">@drawable/oswegocounty</item>
+    </style>
+</resources>

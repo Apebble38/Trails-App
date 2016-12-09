@@ -134,7 +134,7 @@ public class TrailHistoryDatabaseOps extends SQLiteOpenHelper{
 
 
         public int getTrailsCount() {
-            String countQuery = "SELECT  count(*) FROM " + TABLE_NAME;
+            String countQuery = "SELECT  * FROM " + TABLE_NAME;
             SQLiteDatabase db = this.getReadableDatabase();
             if(db==null){
                 return 0;
