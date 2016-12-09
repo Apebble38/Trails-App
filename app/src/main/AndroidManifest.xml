@@ -96,8 +96,8 @@
             android:name=".Trails.TrailActivity"
             android:label="@string/title_activity_trail" />
         <activity android:name=".Trails.TrailHistoryActivity" />
-<<<<<<< HEAD
-<<<<<<< HEAD
+
+
         <activity android:name=".ActivityActivity" />
         android:name=".TrailActivity"
         android:label="@string/title_activity_trail" />
@@ -105,18 +105,13 @@
             android:name=".FitnessActivity"
             android:label="@string/title_activity_fitness" />
         <activity android:name=".ProfileActivity"></activity>
-=======
-=======
->>>>>>> 9fd2ebcdcfdb1e76dd959ece28437de288e4e914
-        <activity android:name=".ActivityActivity" /><![CDATA[
+
+
+        <activity android:name=".ActivityActivity" />
         android:name=".TrailActivity"
         android:label="@string/title_activity_trail" />
 
-    ]]>
-<<<<<<< HEAD
->>>>>>> 9fd2ebcdcfdb1e76dd959ece28437de288e4e914
-=======
->>>>>>> 9fd2ebcdcfdb1e76dd959ece28437de288e4e914
+
     </application>
 
 </manifest>
